@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".LoginActivity"
+    android:background="@color/colorPrimary">
+
+    <com.mikhaellopez.circularimageview.CircularImageView
+        android:id="@+id/appLogo"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/launcher_circle"
+        android:layout_marginTop="50dp"
+        app:civ_border_color="@color/colorAccent"
+        app:civ_border_width="3dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp" />
+
+    <EditText
+        android:id="@+id/enter_username_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="40dp"
+        android:layout_below="@+id/appLogo"
+        android:background="@drawable/rounded_text_field"
+        android:layout_marginStart="30dp"
+        android:maxLength="25"
+        android:layout_marginEnd="30dp"
+        android:hint="Username"
+        android:inputType="text"
+        android:textSize="20sp"
+        android:textStyle="bold"/>
+
+    <EditText
+        android:id="@+id/enter_password_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/enter_username_edittext"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/rounded_text_field"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:maxLength="25"/>
+
+    <EditText
+        android:id="@+id/enter_email_edittext"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_below="@+id/enter_password_edittext"
+        android:layout_margin="30dp"
+        android:background="@drawable/rounded_text_field"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:maxLength="25"/>
+
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_below="@+id/enter_email_edittext"
+        android:background="@color/colorAccent"
+        android:text="Login"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:onClick="prepareLoginData"/>
+
+    <TextView
+        android:id="@+id/sign_up_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_button"
+        android:layout_marginTop="20dp"
+        android:text="New to Events? Sign up here."
+        android:textColor="@color/colorAccent"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:onClick="showSignUpForm"/>
+
+    <Button
+        android:id="@+id/register_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginEnd="35dp"
+        android:layout_below="@+id/enter_email_edittext"
+        android:background="@color/colorAccent"
+        android:text="Sign up"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:visibility="invisible"
+        android:onClick="prepareSignUpData"
+        />
+
+    <TextView
+        android:id="@+id/sign_in_prompt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_button"
+        android:layout_marginTop="20dp"
+        android:text="Already have an account?Login in."
+        android:textColor="@color/colorAccent"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        android:onClick="showLoginForm"/>
+
+</RelativeLayout>

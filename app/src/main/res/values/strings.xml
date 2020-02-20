@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Events</string>
+
+    <string name="messageTab">Messages</string>
+    <string name="mapTab">Map</string>
+    <string name="notificationTab">Notifications</string>
+    <string name="title_activity_login">LoginActivity</string>
+
+</resources>
