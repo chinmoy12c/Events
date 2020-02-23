@@ -17,7 +17,7 @@ import com.mikhaellopez.circularimageview.CircularImageView;
 
 public class LoginActivity extends AppCompatActivity {
 
-    NetworkManagerFirebase networkManagerFirebase;
+    //NetworkManagerFirebase networkManagerFirebase;
     NetworkManagerVolley networkManagerVolley;
     EditText usernameEditText, passwordEditText ,emailEditText;
     TextView signInPrompt, signUpPrompt;
@@ -46,7 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(new Intent(this,MainActivity.class));
         }
         else{
-            networkManagerFirebase = new NetworkManagerFirebase(this);
+            //networkManagerFirebase = new NetworkManagerFirebase(this);
             networkManagerVolley = new NetworkManagerVolley(this);
         }
     }
