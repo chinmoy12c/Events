@@ -15,7 +15,8 @@
 
     <com.mikhaellopez.circularimageview.CircularImageView
         android:id="@+id/addStoryButton"
-        android:layout_margin="20dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="80dp"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/uploadevent"
@@ -23,4 +24,83 @@
         android:layout_alignParentEnd="true"
         android:tooltipText="Upload an event"
         />
+
+    <ScrollView
+        android:id="@+id/uploadDetailsView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/previewImageCard"
+                android:layout_width="match_parent"
+                android:layout_height="350dp"
+                android:layout_margin="20dp"
+                app:cardCornerRadius="10dp"
+                app:cardBackgroundColor="#454a52">
+
+                <ImageView
+                    android:id="@+id/previewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:src="@drawable/launcher_square"
+                    android:background="@color/colorPrimary"
+                    />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/profilePic"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_margin="20dp"
+                android:layout_below="@+id/previewImageCard"
+                android:src="@mipmap/ic_launcher"/>
+
+            <EditText
+                android:id="@+id/postDescription"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:layout_below="@+id/previewImageCard"
+                android:layout_toEndOf="@+id/profilePic"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="20dp"
+                android:hint="Write something here"
+                android:inputType="textCapSentences"/>
+
+            <Button
+                android:id="@+id/uploadButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/postDescription"
+                android:layout_marginTop="30dp"
+                android:layout_marginStart="40dp"
+                android:layout_marginEnd="40dp"
+                android:background="@drawable/rounded_buttons"
+                android:text="Upload"
+                android:textSize="18sp"
+                android:fontFamily="sans-serif-black"
+                android:textColor="#ffffff"
+                android:shadowColor="@color/colorPrimary" />
+
+            <Button
+                android:id="@+id/cancelButton"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_below="@+id/uploadButton"
+                android:layout_margin="40dp"
+                android:background="@drawable/rounded_buttons"
+                android:text="Cancel"
+                android:textSize="18sp"
+                android:textColor="#ffffff"/>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
 </RelativeLayout>

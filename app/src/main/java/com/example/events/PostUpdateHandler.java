@@ -1,5 +1,7 @@
 package com.example.events;
 
+import android.content.Context;
+
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.LatLngBounds;
@@ -16,13 +18,18 @@ public class PostUpdateHandler implements GoogleMap.OnCameraIdleListener{
     private double scalableScreenLongitude;
     private int BOX_DIVISIONS = 3;
     private ArrayList<LatLng> loadedCentres = new ArrayList<>();
-    private NetworkManagerRealtimeDatabase networkManagerRealtimeDatabase;
+    private NetworkManagerVolley networkManagerVolley;
+    private Context context;
+    //private NetworkManagerRealtimeDatabase networkManagerRealtimeDatabase;
 
-    PostUpdateHandler(GoogleMap googleMap){
+    PostUpdateHandler(Context context, GoogleMap googleMap){
 
         this.googleMap = googleMap;
+        this.context = context;
 
-        networkManagerRealtimeDatabase = new NetworkManagerRealtimeDatabase();
+        //networkManagerRealtimeDatabase = new NetworkManagerRealtimeDatabase();
+
+        networkManagerVolley = new NetworkManagerVolley(context);
 
         updateScaleValues();
         ArrayList<LatLngBounds> initialBounds = getUpdatedCoords(googleMap.getProjection().getVisibleRegion());
@@ -100,7 +107,8 @@ public class PostUpdateHandler implements GoogleMap.OnCameraIdleListener{
     private void setMapUpdates(ArrayList<LatLngBounds> updatedBoxes){
 
         for (LatLngBounds box : updatedBoxes) {
-            networkManagerRealtimeDatabase.getDataTopStory(box,googleMap);
+            //networkManagerRealtimeDatabase.getDataTopStory(box,googleMap);
+            networkManagerVolley.getTopStory(box,googleMap);
         }
     }
 

@@ -78,7 +78,7 @@ public class LoginActivity extends AppCompatActivity {
 
         appLogo.startAnimation(rotateLogo);
         //networkManagerFirebase.initiateSignUp(usernameData,passwordData,appLogo);
-        networkManagerVolley.createUser(usernameData,passwordData,emailData);
+        networkManagerVolley.createUser(usernameData,passwordData,emailData,appLogo);
     }
 
     public void prepareLoginData(View view){
@@ -88,7 +88,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
         appLogo.startAnimation(rotateLogo);
-        networkManagerFirebase.initiateLogin(usernameData,passwordData,emailData,appLogo);
+        //networkManagerFirebase.initiateLogin(usernameData,passwordData,emailData,appLogo);
+        networkManagerVolley.signInUser(usernameData,passwordData,emailData,appLogo);
     }
 
     public void showLoginForm(View view){
@@ -104,4 +105,5 @@ public class LoginActivity extends AppCompatActivity {
         loginButton.setVisibility(View.INVISIBLE);
         signUpPrompt.setVisibility(View.INVISIBLE);
     }
+
 }
