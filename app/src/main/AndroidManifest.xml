@@ -19,7 +19,6 @@
         android:roundIcon="@drawable/launcher_circle"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
-        android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning">
         <activity android:name=".StoryDisplay"></activity>
 

@@ -43,6 +43,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
+import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -58,7 +59,7 @@ import java.util.Date;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MapFragment extends Fragment implements OnMapReadyCallback{
+public class MapFragment extends Fragment implements OnMapReadyCallback, GoogleMap.OnMarkerClickListener {
 
 
     private View rootView,mapView;
@@ -171,7 +172,7 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
     public void onMapReady(GoogleMap googleMap) {
         this.googleMap = googleMap;
         googleMap.getUiSettings().setRotateGesturesEnabled(false);
-        googleMap.setOnMarkerClickListener(new StoryViewHandler(getContext()));
+        googleMap.setOnMarkerClickListener(this);
 
         mFusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(rootView.getContext());
 
@@ -396,4 +397,11 @@ public class MapFragment extends Fragment implements OnMapReadyCallback{
                 matrix, true);
     }
 
+    @Override
+    public boolean onMarkerClick(Marker marker) {
+        Intent storyDisplayIntent = new Intent(getContext(),StoryDisplay.class);
+        storyDisplayIntent.putExtra("storyData",marker.getTag().toString());
+        startActivity(storyDisplayIntent);
+        return false;
+    }
 }
